@@ -67,6 +67,11 @@ jobs:
         cd openwrt
         ./diy-part2.sh
 
+    - name: Update .config file
+      run: |
+        cd openwrt
+        make oldconfig
+
     - name: Compile the firmware
       id: compile
       run: |
