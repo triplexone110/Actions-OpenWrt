@@ -67,11 +67,6 @@ jobs:
         cd openwrt
         ./diy-part2.sh
 
-    - name: Make defconfig
-      run: |
-        cd openwrt
-        make defconfig
-
     - name: Compile the firmware
       id: compile
       run: |
