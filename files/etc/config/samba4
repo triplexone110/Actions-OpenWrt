@@ -1,0 +1,16 @@
+
+config samba
+	option workgroup 'WORKGROUP'
+	option charset 'UTF-8'
+	option description 'Samba on OpenWRT'
+
+config sambashare
+	option name 'Repository'
+	option path '/mnt/sda1'
+	option read_only 'no'
+	option force_root '1'
+	option users 'root'
+	option guest_ok 'no'
+	option create_mask '755'
+	option dir_mask '755'
+
