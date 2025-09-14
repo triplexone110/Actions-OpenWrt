@@ -65,13 +65,13 @@ jobs:
     - name: Verify LuCI feeds
       run: |
         cd openwrt
-        ./scripts/feeds install luci luci-i18n-base-zh-cn
+        ./scripts/feeds install -f luci luci-i18n-base-zh-cn
 
     - name: Compile LuCI dependencies
       run: |
         cd openwrt
-        make package/luci/compile V=s -j$(nproc)  # 手动编译 luci 包
-        make package/luci-i18n-base-zh-cn/compile V=s -j$(nproc)  # 手动编译 zh-cn 包
+        make package/luci/compile V=s -j$(nproc)
+        make package/luci-i18n-base-zh-cn/compile V=s -j$(nproc)
 
     - name: Run custom script part 2
       run: |
@@ -81,7 +81,7 @@ jobs:
     - name: Update .config file
       run: |
         cd openwrt
-        make oldconfig
+        make defconfig
 
     - name: Compile the firmware
       id: compile
