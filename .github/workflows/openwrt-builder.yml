@@ -67,6 +67,12 @@ jobs:
         cd openwrt
         ./scripts/feeds install luci luci-i18n-base-zh-cn
 
+    - name: Compile LuCI dependencies
+      run: |
+        cd openwrt
+        make package/luci/compile V=s -j$(nproc)  # 手动编译 luci 包
+        make package/luci-i18n-base-zh-cn/compile V=s -j$(nproc)  # 手动编译 zh-cn 包
+
     - name: Run custom script part 2
       run: |
         cd openwrt
